@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use App\Contacts;
+use App\Contacts;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -10,16 +10,13 @@ class ContactsController extends Controller
 
     public function showAllContacts()
     {
-        print_r("AQUI");exit;
         $contact = Contacts::all();
         return response()->json($contact);
     }
 
     public function showOneContact($id)
     {
-        $contact = Contacts::find($id);
-
-        return response()->json($contact);
+        return response()->json(Contacts::find($id));
     }
 
     public function create(Request $request)
@@ -40,6 +37,6 @@ class ContactsController extends Controller
     public function delete($id)
     {
         Contacts::findOrFail($id)->delete();
-        return response('Deletado com sucesso!', 200);
+        return response('Success!', 200);
     }
 }

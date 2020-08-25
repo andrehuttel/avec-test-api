@@ -11,10 +11,10 @@
 |
 */
 
-$app->group(['prefix' => 'api'], function () use ($app) {
+$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api'], function () use ($app) {
   $app->get('/contacts', 'ContactsController@showAllcontacts');
-  $app->get('/contact/{id}', 'ContactsController@showOneContacts');
+  $app->get('/contact/{id}', 'ContactsController@showOneContact');
   $app->post('/contacts', 'ContactsController@create');
   $app->put('/contacts/{id}', 'ContactsController@update');
-  $app->delete('/contacts/{id}', 'ContactsController@delete');
+  $app->delete('/contact/{id}', 'ContactsController@delete');
 });
